@@ -27,7 +27,7 @@ zinit light-mode for \
 # atclone"dircolors -b LS_COLORS > c.zsh" atpull"%atclone" pick"c.zsh" \
 # trapd00r/LS_COLORS \
 export BASE16_THEME="dracula"
-zinit lucid light-mode for \
+zinit wait lucid light-mode for \
     chrissicool/zsh-256color \
     pick"scripts/base16-${BASE16_THEME}.sh" \
         chriskempson/base16-shell \
@@ -35,17 +35,17 @@ zinit lucid light-mode for \
         nicodebo/base16-fzf
 
 # Starship prompt
-zinit ice lucid from"gh-r" as"command" pick"starship" atload"eval \$(starship init zsh)"
+zinit ice lucid from"gh-r" as"program" pick"starship" atload"eval \$(starship init zsh)"
 zinit light starship/starship
 
 # Basic shell
-zinit lucid light-mode for \
+zinit wait lucid light-mode for \
+    atinit"zicompinit; zicdreplay" \
+        zdharma/fast-syntax-highlighting \
     atload"_zsh_autosuggest_start" \
         zsh-users/zsh-autosuggestions \
     blockf atpull"zinit creinstall -q ." \
-        zsh-users/zsh-completions \
-    atinit"zicompinit; zicdreplay" \
-        zdharma/fast-syntax-highlighting
+        zsh-users/zsh-completions
 
 # History file configuration
 [ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
@@ -74,7 +74,8 @@ zinit ice wait lucid pick"asdf.sh" src"completions/_asdf"
 zinit light asdf-vm/asdf
 
 # yadm
-zinit ice wait lucid pick"yadm" as"command"
+zinit ice wait lucid atclone"rm yadm.1 yadm.md yadm.spec" atpull"%atclone" \
+    pick"yadm" as"program" mv"completion/yadm.zsh_completion -> _yadm" nocompile"1"
 zinit light TheLocehiliosan/yadm
 
 # Alias
