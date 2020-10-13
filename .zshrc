@@ -74,8 +74,8 @@ zinit ice wait lucid pick"asdf.sh" src"completions/_asdf"
 zinit light asdf-vm/asdf
 
 # yadm
-zinit ice wait lucid atclone"rm yadm.1 yadm.md yadm.spec" atpull"%atclone" \
-    pick"yadm" as"program" mv"completion/yadm.zsh_completion -> _yadm" nocompile"1"
+zinit ice wait lucid make"install PREFIX=${HOME}/.local" \
+    mv"completion/yadm.zsh_completion -> _yadm"
 zinit light TheLocehiliosan/yadm
 
 # Alias

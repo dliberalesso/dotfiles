@@ -10,4 +10,4 @@ if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; t
 fi
 
 # Home-made scripts
-export PATH=$PATH:${HOME}/.bin
+export PATH=${HOME}/.bin:${HOME}/.local/bin:$PATH
