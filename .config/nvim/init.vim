@@ -9,12 +9,11 @@ Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 
-" Plug 'liuchengxu/vim-clap', {'do': ':Clap install-binary!'}
 Plug 'liuchengxu/vim-which-key'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mhinz/vim-signify'
 Plug 'vim-test/vim-test'
 Plug 'sheerun/vim-polyglot'
+Plug 'zinit-zsh/zinit-vim-syntax'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-lists', {'do': 'yarn install --frozen-lockfile'}
@@ -57,7 +56,7 @@ augroup END
 set termguicolors
 set cursorline
 let base16colorspace = 256
-let g:base16_shell_path = "~/.zplug/repos/chriskempson/base16-shell/scripts/"
+let g:base16_shell_path = "~/.zinit/plugins/chriskempson---base16-shell/scripts/"
 colorscheme base16-dracula
 
 let g:airline_theme = "base16_dracula"
@@ -102,15 +101,6 @@ let g:projectionist_heuristics['mix.exs'] = {
   \ }
 
 let g:dispatch_compilers = {'elixir': 'exunit'}
-
-" let g:clap_layout = {'relative': 'editor'}
-" let g:clap_popup_border = 'sharp'
-" let g:clap_search_box_border_style = 'nil'
-
-" nnoremap <silent> <Leader>fh :<C-u>Clap history<CR>
-" nnoremap <silent> <Leader>ff :<C-u>Clap files<cr>
-" nnoremap <silent> <Leader>fa :<C-u>Clap grep2<CR>
-" nnoremap <silent> <Leader>fb :<C-u>Clap marks<CR>
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
