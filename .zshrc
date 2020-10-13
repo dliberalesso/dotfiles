@@ -31,7 +31,7 @@ zinit wait lucid light-mode for \
     chrissicool/zsh-256color \
     pick"scripts/base16-${BASE16_THEME}.sh" \
         chriskempson/base16-shell \
-    wait src"bash/base16-${BASE16_THEME}.config" pick"bash/base16-${BASE16_THEME}.config" \
+    pick"bash/base16-${BASE16_THEME}.config" \
         nicodebo/base16-fzf
 
 # Starship prompt
@@ -59,7 +59,7 @@ setopt hist_ignore_dups       # ignore duplicated commands history list
 setopt hist_ignore_space      # ignore commands that start with space
 setopt hist_verify            # show command with history expansion to user before running it
 
-zinit ice wait lucid nocompile \
+zinit ice wait lucid \
     atload"bindkey '^[[A' history-substring-search-up; bindkey '^[[B' history-substring-search-down"
 zinit light zsh-users/zsh-history-substring-search
 
@@ -74,8 +74,7 @@ zinit ice wait lucid pick"asdf.sh" src"completions/_asdf"
 zinit light asdf-vm/asdf
 
 # yadm
-zinit ice wait lucid make"install PREFIX=${HOME}/.local" \
-    mv"completion/yadm.zsh_completion -> _yadm"
+zinit ice wait lucid make"install PREFIX=${HOME}/.local" mv"completion/yadm.zsh_completion -> _yadm"
 zinit light TheLocehiliosan/yadm
 
 # Alias
