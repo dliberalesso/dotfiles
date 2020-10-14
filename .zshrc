@@ -99,6 +99,12 @@ zinit light junegunn/fzf
 zinit ice wait lucid has"fzf" sbin"bin/gomi" pick"/dev/null"
 zinit light b4b4r07/zsh-gomi
 
+# tealdeer
+zinit ice wait lucid from"gh-r" sbin"tldr* -> tldr"
+zinit light dbrgn/tealdeer
+zinit ice wait lucid has"tldr" mv"zsh_tealdeer -> _tldr" as"completion"
+zinit snippet https://github.com/dbrgn/tealdeer/blob/master/zsh_tealdeer
+
 # yadm
 zinit ice wait lucid make"install PREFIX=$ZPFX" mv"completion/yadm.zsh_completion -> _yadm"
 zinit light TheLocehiliosan/yadm
