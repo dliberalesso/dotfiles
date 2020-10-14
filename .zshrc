@@ -82,6 +82,12 @@ zinit ice wait lucid from"gh-r" mv"bat* -> bat" \
     atpull"%atclone" atload"alias cat=bat; export BAT_THEME=base16-256"
 zinit light sharkdp/bat
 
+# delta
+zinit ice wait lucid from"gh-r" sbin"delta*/delta"
+zinit light dandavison/delta
+zinit ice wait lucid has"delta" mv"completion.zsh -> _delta" as"completion"
+zinit snippet https://github.com/dandavison/delta/blob/master/etc/completion/completion.zsh
+
 # exa
 zinit ice wait lucid from"gh-r" sbin"exa* -> exa"
 zinit light ogham/exa
@@ -95,9 +101,22 @@ zinit ice wait lucid has"fzf" sbin"bin/fzf-tmux" mv"shell/completion.zsh -> _fzf
     src"shell/key-bindings.zsh" atclone"cp man/man1/* $ZPFX/share/man/man1/" atpull"%atclone"
 zinit light junegunn/fzf
 
+# forgit
+zinit ice wait lucid has"fzf"
+zinit light wfxr/forgit
+
+# formarks
+zinit ice wait lucid has"fzf"
+zinit light wfxr/formarks
+
 # gomi
 zinit ice wait lucid has"fzf" sbin"bin/gomi" pick"/dev/null"
 zinit light b4b4r07/zsh-gomi
+
+# ripgrep
+zinit ice wait lucid from"gh-r" mv"ripgrep* -> ripgrep" atpull"%atclone" \
+    atclone"cp ripgrep/rg $ZPFX/bin/rg; cp ripgrep/doc/rg.1 $ZPFX/share/man/man1/rg.1"
+zinit light BurntSushi/ripgrep
 
 # tealdeer
 zinit ice wait lucid from"gh-r" sbin"tldr* -> tldr"
