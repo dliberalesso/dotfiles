@@ -83,10 +83,21 @@ zinit ice wait lucid from"gh-r" mv"bat* -> bat" \
 zinit light sharkdp/bat
 
 # exa
-zinit ice wait lucid from"gh-r" mv"exa* -> exa" sbin"exa"
+zinit ice wait lucid from"gh-r" sbin"exa* -> exa"
 zinit light ogham/exa
 zinit ice wait lucid has"exa" mv"completions.zsh -> _exa" as"completion"
 zinit snippet https://github.com/ogham/exa/blob/master/completions/completions.zsh
+
+# fzf
+zinit ice wait lucid from"gh-r" sbin"fzf"
+zinit light junegunn/fzf-bin
+zinit ice wait lucid has"fzf" sbin"bin/fzf-tmux" mv"shell/completion.zsh -> _fzf" \
+    src"shell/key-bindings.zsh" atclone"cp man/man1/* $ZPFX/share/man/man1/" atpull"%atclone"
+zinit light junegunn/fzf
+
+# gomi
+zinit ice wait lucid has"fzf" sbin"bin/gomi" pick"/dev/null"
+zinit light b4b4r07/zsh-gomi
 
 # yadm
 zinit ice wait lucid make"install PREFIX=$ZPFX" mv"completion/yadm.zsh_completion -> _yadm"
