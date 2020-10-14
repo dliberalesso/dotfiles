@@ -15,6 +15,9 @@ source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
+# Create needed dir
+mkdir -p $ZPFX/share/man/man1
+
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
 zinit light-mode for \
@@ -35,7 +38,7 @@ zinit wait lucid light-mode for \
         nicodebo/base16-fzf
 
 # Starship prompt
-zinit ice lucid from"gh-r" as"program" pick"starship" atload"eval \$(starship init zsh)"
+zinit ice lucid from"gh-r" sbin"starship" atload"eval \$(starship init zsh)"
 zinit light starship/starship
 
 # Basic shell
@@ -69,16 +72,29 @@ zinit wait lucid for \
     OMZ::plugins/git/git.plugin.zsh \
     OMZ::plugins/tmux/tmux.plugin.zsh
 
-# asdf stuff
+# asdf
 zinit ice wait lucid pick"asdf.sh" src"completions/_asdf"
 zinit light asdf-vm/asdf
 
+# bat
+zinit ice wait lucid from"gh-r" mv"bat* -> bat" \
+    atclone"cp bat/bat $ZPFX/bin/bat; cp bat/bat.1 $ZPFX/share/man/man1/bat.1" \
+    atpull"%atclone" atload"alias cat=bat; export BAT_THEME=base16-256"
+zinit light sharkdp/bat
+
+# exa
+zinit ice wait lucid from"gh-r" mv"exa* -> exa" sbin"exa"
+zinit light ogham/exa
+zinit ice wait lucid has"exa" mv"completions.zsh -> _exa" as"completion"
+zinit snippet https://github.com/ogham/exa/blob/master/completions/completions.zsh
+
 # yadm
-zinit ice wait lucid make"install PREFIX=${HOME}/.local" mv"completion/yadm.zsh_completion -> _yadm"
+zinit ice wait lucid make"install PREFIX=$ZPFX" mv"completion/yadm.zsh_completion -> _yadm"
 zinit light TheLocehiliosan/yadm
 
 # Alias
-alias la="ls -lah --color=auto"
-alias lh="ls -lh --color=auto"
-alias ls="ls --color=auto"
+alias la="exa -a --color=auto"
+alias lh="exa -lh --color=auto"
+alias lah="exa -lah --color=auto"
+alias ls="exa --color=auto"
 alias grep="grep --color=auto"
