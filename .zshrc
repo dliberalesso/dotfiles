@@ -109,9 +109,18 @@ zinit light wfxr/forgit
 zinit ice wait lucid has"fzf"
 zinit light wfxr/formarks
 
+# gh
+zinit ice wait lucid from"gh-r"  \
+    atclone"cp usr/bin/gh $ZPFX/bin/gh; cp usr/share/man/man1/* $ZPFX/share/man/man1/" atpull"%atclone"
+zinit light cli/cli
+
 # gomi
 zinit ice wait lucid has"fzf" sbin"bin/gomi" pick"/dev/null"
 zinit light b4b4r07/zsh-gomi
+
+# lazygit
+zinit ice wait lucid from"gh-r" sbin"lazygit"
+zinit light "jesseduffield/lazygit"
 
 # ripgrep
 zinit ice wait lucid from"gh-r" mv"ripgrep* -> ripgrep" atpull"%atclone" \
