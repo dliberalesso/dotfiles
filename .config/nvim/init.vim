@@ -15,10 +15,8 @@ Plug 'vim-test/vim-test'
 Plug 'sheerun/vim-polyglot'
 Plug 'zinit-zsh/zinit-vim-syntax'
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc-lists', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-pairs', {'do': 'yarn install --frozen-lockfile'}
-Plug 'elixir-lsp/coc-elixir', {'do': 'rm elixir-ls/.tool-versions && yarn install && yarn prepack'}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 Plug 'chriskempson/base16-vim'
 Plug 'dawikur/base16-vim-airline-themes'
