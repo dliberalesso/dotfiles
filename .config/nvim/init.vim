@@ -9,13 +9,13 @@ Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 
-Plug 'liuchengxu/vim-which-key'
 Plug 'mhinz/vim-signify'
 Plug 'vim-test/vim-test'
 Plug 'sheerun/vim-polyglot'
 Plug 'zinit-zsh/zinit-vim-syntax'
 
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'liuchengxu/vim-which-key'
+Plug 'liuchengxu/vim-clap', { 'do': { -> clap#installer#force_download() } }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 Plug 'chriskempson/base16-vim'
@@ -26,7 +26,7 @@ call plug#end()
 
 " General Settings
 set hidden
-set clipboard=unnamed
+set clipboard+=unnamed
 set expandtab
 set nobackup
 set noswapfile
