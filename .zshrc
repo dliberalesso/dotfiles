@@ -85,6 +85,7 @@ zinit wait"0b" lucid from"gh-r" for \
     sbin"exa* -> exa" ogham/exa \
     sbin"tldr* -> tldr" dbrgn/tealdeer \
     sbin junegunn/fzf-bin \
+    sbin xxxserxxx/gotop \
     sbin jesseduffield/lazygit
 
 zinit wait"0c" lucid for \
