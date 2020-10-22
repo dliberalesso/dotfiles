@@ -41,10 +41,6 @@ zinit lucid light-mode for \
     zinit-zsh/z-a-bin-gem-node \
     from"gh-r" sbin"starship" atload"eval \$(starship init zsh)" starship/starship
 
-# Colors
-# atclone"dircolors -b LS_COLORS > c.zsh" atpull"%atclone" pick"c.zsh" \
-# trapd00r/LS_COLORS \
-
 BASE16_THEME="dracula"
 zinit wait"0a" lucid light-mode for \
     atinit"zicompinit; zicdreplay" \
@@ -86,7 +82,8 @@ zinit wait"0b" lucid from"gh-r" for \
     sbin"tldr* -> tldr" dbrgn/tealdeer \
     sbin junegunn/fzf-bin \
     sbin xxxserxxx/gotop \
-    sbin jesseduffield/lazygit
+    sbin jesseduffield/lazygit \
+    sbin gokcehan/lf
 
 zinit wait"0c" lucid for \
     OMZ::lib/termsupport.zsh \
@@ -96,9 +93,13 @@ zinit wait"0c" lucid for \
         https://github.com/dandavison/delta/blob/master/etc/completion/completion.zsh \
     has"exa" mv"completions.zsh -> _exa" as"completion" \
         https://github.com/ogham/exa/blob/master/completions/completions.zsh \
+    has"lf" \
+        mv"lf.zsh -> _lf" as"completion" \
+            https://github.com/gokcehan/lf/blob/master/etc/lf.zsh \
+        https://github.com/gokcehan/lf/blob/master/etc/lfcd.sh \
     has"tldr" mv"zsh_tealdeer -> _tldr" as"completion" \
         https://github.com/dbrgn/tealdeer/blob/master/zsh_tealdeer
-        
+
 zinit wait"0c" lucid light-mode has"fzf" for \
     sbin"bin/fzf-tmux" mv"shell/completion.zsh -> _fzf" \
     src"shell/key-bindings.zsh" atclone"cp -TR man/ $ZPFX/share/man/" atpull"%atclone" junegunn/fzf \
@@ -129,3 +130,167 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS='--preview "bat --style=numbers --color=always --line-range :500 {}" --preview-window=right:60%:wrap'
 export FZF_ALT_C_OPTS='--preview="ls {}" --preview-window=right:60%:wrap'
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'--height=50%'
+
+export LF_ICONS="\
+tw=:\
+st=:\
+ow=:\
+dt=:\
+di=:\
+fi=:\
+ln=:\
+or=:\
+ex=:\
+*.c=:\
+*.cc=:\
+*.clj=:\
+*.coffee=:\
+*.cpp=:\
+*.css=:\
+*.d=:\
+*.dart=:\
+*.erl=:\
+*.ex=:\
+*.exs=:\
+*.fs=:\
+*.go=:\
+*.h=:\
+*.hh=:\
+*.hpp=:\
+*.hs=:\
+*.html=:\
+*.java=:\
+*.jl=:\
+*.js=:\
+*.json=:\
+*.lua=:\
+*.md=:\
+*.php=:\
+*.pl=:\
+*.pro=:\
+*.py=:\
+*.rb=:\
+*.rs=:\
+*.scala=:\
+*.ts=:\
+*.vim=:\
+*.cmd=:\
+*.ps1=:\
+*.sh=:\
+*.bash=:\
+*.zsh=:\
+*.fish=:\
+*.tar=:\
+*.tgz=:\
+*.arc=:\
+*.arj=:\
+*.taz=:\
+*.lha=:\
+*.lz4=:\
+*.lzh=:\
+*.lzma=:\
+*.tlz=:\
+*.txz=:\
+*.tzo=:\
+*.t7z=:\
+*.zip=:\
+*.z=:\
+*.dz=:\
+*.gz=:\
+*.lrz=:\
+*.lz=:\
+*.lzo=:\
+*.xz=:\
+*.zst=:\
+*.tzst=:\
+*.bz2=:\
+*.bz=:\
+*.tbz=:\
+*.tbz2=:\
+*.tz=:\
+*.deb=:\
+*.rpm=:\
+*.jar=:\
+*.war=:\
+*.ear=:\
+*.sar=:\
+*.rar=:\
+*.alz=:\
+*.ace=:\
+*.zoo=:\
+*.cpio=:\
+*.7z=:\
+*.rz=:\
+*.cab=:\
+*.wim=:\
+*.swm=:\
+*.dwm=:\
+*.esd=:\
+*.jpg=:\
+*.jpeg=:\
+*.mjpg=:\
+*.mjpeg=:\
+*.gif=:\
+*.bmp=:\
+*.pbm=:\
+*.pgm=:\
+*.ppm=:\
+*.tga=:\
+*.xbm=:\
+*.xpm=:\
+*.tif=:\
+*.tiff=:\
+*.png=:\
+*.svg=:\
+*.svgz=:\
+*.mng=:\
+*.pcx=:\
+*.mov=:\
+*.mpg=:\
+*.mpeg=:\
+*.m2v=:\
+*.mkv=:\
+*.webm=:\
+*.ogm=:\
+*.mp4=:\
+*.m4v=:\
+*.mp4v=:\
+*.vob=:\
+*.qt=:\
+*.nuv=:\
+*.wmv=:\
+*.asf=:\
+*.rm=:\
+*.rmvb=:\
+*.flc=:\
+*.avi=:\
+*.fli=:\
+*.flv=:\
+*.gl=:\
+*.dl=:\
+*.xcf=:\
+*.xwd=:\
+*.yuv=:\
+*.cgm=:\
+*.emf=:\
+*.ogv=:\
+*.ogx=:\
+*.aac=:\
+*.au=:\
+*.flac=:\
+*.m4a=:\
+*.mid=:\
+*.midi=:\
+*.mka=:\
+*.mp3=:\
+*.mpc=:\
+*.ogg=:\
+*.ra=:\
+*.wav=:\
+*.oga=:\
+*.opus=:\
+*.spx=:\
+*.xspf=:\
+*.pdf=:\
+*.nix=:\
+"
