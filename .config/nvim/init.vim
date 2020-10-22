@@ -1,7 +1,5 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'bling/vim-airline'
-
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
@@ -9,14 +7,19 @@ Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 
-Plug 'mhinz/vim-signify'
+Plug 'voldikss/vim-floaterm'
 Plug 'vim-test/vim-test'
+
+Plug 'liuchengxu/vim-which-key'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+
 Plug 'sheerun/vim-polyglot'
 Plug 'zinit-zsh/zinit-vim-syntax'
 
-Plug 'voldikss/vim-floaterm'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'bling/vim-airline'
+Plug 'mhinz/vim-signify'
+Plug 'norcalli/nvim-colorizer.lua'
 
 Plug 'chriskempson/base16-vim'
 Plug 'dawikur/base16-vim-airline-themes'
@@ -55,17 +58,17 @@ augroup END
 set termguicolors
 set cursorline
 let base16colorspace = 256
-let g:base16_shell_path = "~/.zinit/plugins/chriskempson---base16-shell/scripts/"
+let g:base16_shell_path = '~/.zinit/plugins/chriskempson---base16-shell/scripts/'
 colorscheme base16-dracula
 
-let g:airline_theme = "base16_dracula"
+let g:airline_theme = 'base16_dracula'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
-let &colorcolumn = "98,".join(range(99,999),",")
+let &colorcolumn = '98,'.join(range(99,999),',')
 
 let g:projectionist_heuristics = {}
 let g:projectionist_heuristics['mix.exs'] = {
@@ -99,8 +102,8 @@ let g:projectionist_heuristics['mix.exs'] = {
   \   }
   \ }
 
-let g:dispatch_compilers = {'elixir': 'exunit'}
-
+let g:dispatch_compilers = { 'elixir': 'exunit' }
+"
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
