@@ -1,31 +1,8 @@
-call plug#begin('~/.vim/plugged')
+if &compatible
+  set nocompatible
+endif
 
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-projectionist'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-surround'
-
-Plug 'voldikss/vim-floaterm'
-Plug 'vim-test/vim-test'
-
-Plug 'liuchengxu/vim-which-key'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-
-Plug 'sheerun/vim-polyglot'
-Plug 'zinit-zsh/zinit-vim-syntax'
-
-Plug 'bling/vim-airline'
-Plug 'mhinz/vim-signify'
-Plug 'norcalli/nvim-colorizer.lua'
-
-Plug 'chriskempson/base16-vim'
-Plug 'dawikur/base16-vim-airline-themes'
-Plug 'ryanoasis/vim-devicons'
-
-call plug#end()
+runtime! plugins.vim
 
 " General Settings
 set hidden
@@ -34,7 +11,7 @@ set expandtab
 set nobackup
 set noswapfile
 set nowritebackup
-set undodir=~/.vim/temp_dirs/undodir
+set undodir=~/.config/nvim/temp_dirs/undodir
 set undofile
 set updatetime=100
 set shortmess+=c
@@ -103,7 +80,10 @@ let g:projectionist_heuristics['mix.exs'] = {
   \ }
 
 let g:dispatch_compilers = { 'elixir': 'exunit' }
-"
+
+let g:floaterm_width = 0.8
+let g:floaterm_height = 0.8
+
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.

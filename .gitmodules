@@ -1,0 +1,3 @@
+[submodule ".config/nvim/pack/packager/opt/vim-packager"]
+	path = .config/nvim/pack/packager/opt/vim-packager
+	url = https://github.com/kristijanhusak/vim-packager
