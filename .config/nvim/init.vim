@@ -35,7 +35,7 @@ augroup END
 set termguicolors
 set cursorline
 let base16colorspace = 256
-let g:base16_shell_path = '~/.zinit/plugins/chriskempson---base16-shell/scripts/'
+let g:base16_shell_path = $ZDOTDIR . '/.zinit/plugins/chriskempson---base16-shell/scripts/'
 colorscheme base16-dracula
 
 let g:airline_theme = 'base16_dracula'
