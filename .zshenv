@@ -2,8 +2,7 @@
 # vim:syntax=zsh
 # vim:filetype=zsh
 
-export XDG_CONFIG_HOME=${$XDG_CONFIG_HOME:=${HOME}/.config}
-export ZDOTDIR=${ZDOTDIR:=${XDG_CONFIG_HOME}/zsh}
+export ZDOTDIR=${HOME}/.config/zsh
 
 skip_global_compinit=1
 
