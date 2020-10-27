@@ -11,7 +11,7 @@ set expandtab
 set nobackup
 set noswapfile
 set nowritebackup
-set undodir=~/.config/nvim/temp_dirs/undodir
+set undodir=~/.local/share/nvim/undodir
 set undofile
 set updatetime=100
 set shortmess+=c
