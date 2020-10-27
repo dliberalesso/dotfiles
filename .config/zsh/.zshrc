@@ -80,6 +80,7 @@ zinit wait"0b" lucid from"gh-r" for \
     sbin"delta*/delta" dandavison/delta \
     sbin"exa* -> exa" ogham/exa \
     sbin"tldr* -> tldr" dbrgn/tealdeer \
+    sbin"win32yank.exe" equalsraf/win32yank \
     sbin junegunn/fzf-bin \
     sbin xxxserxxx/gotop \
     sbin jesseduffield/lazygit \

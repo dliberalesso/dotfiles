@@ -6,7 +6,7 @@ runtime! plugins.vim
 
 " General Settings
 set hidden
-set clipboard+=unnamed " TODO: Fix the clipboard
+set clipboard+=unnamedplus
 set expandtab
 set nobackup
 set noswapfile
