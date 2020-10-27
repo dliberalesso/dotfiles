@@ -57,9 +57,7 @@ zinit wait"0a" lucid light-mode for \
     pick"bash/base16-${BASE16_THEME}.config" \
         nicodebo/base16-fzf \
     pick"asdf.sh" src"completions/_asdf" \
-        @asdf-vm/asdf \
-    make"install PREFIX=$ZPFX" mv"completion/yadm.zsh_completion -> _yadm" \
-        TheLocehiliosan/yadm
+        @asdf-vm/asdf
 
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -72,6 +70,7 @@ zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm,cmd
 
 zinit wait"0b" lucid from"gh-r" bpick"*amd64.deb" atclone"cp -TR usr/ $ZPFX/" atpull"%atclone" for \
     atload"alias cat=bat; export BAT_THEME=base16-256" @sharkdp/bat \
+    twpayne/chezmoi \
     cli/cli \
     BurntSushi/ripgrep
 

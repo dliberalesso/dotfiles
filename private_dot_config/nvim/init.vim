@@ -21,6 +21,7 @@ set splitbelow
 " Space is our leader!
 let g:mapleader="\<Space>"
 nnoremap <silent> <Leader>ff :<C-u>CocCommand fzf-preview.ProjectFiles<CR>
+nnoremap <silent> <Leader>fd :<C-u>CocCommand fzf-preview.DirectoryFiles<CR>
 
 " Line numbers
 set signcolumn=yes
@@ -46,6 +47,9 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
 let &colorcolumn = '98,'.join(range(99,999),',')
+
+" fzf-preview
+let g:fzf_preview_use_dev_icons = 1
 
 let g:projectionist_heuristics = {}
 let g:projectionist_heuristics['mix.exs'] = {
