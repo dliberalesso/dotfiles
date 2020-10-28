@@ -7,8 +7,9 @@ let g:which_key_sep = '->'
 let g:which_key_map.f = {
   \ 'name' : '+find/files',
   \ 'd' : [':silent :CocCommand fzf-preview.DirectoryFiles', 'fzf-directory-files'],
-  \ 'e' : [':silent :FloatermNew lf', 'lf-file-manager'],
   \ 'f' : [':silent :CocCommand fzf-preview.ProjectFiles', 'fzf-project-files'],
+  \ 'm' : [':silent :FloatermNew lf', 'lf-file-manager'],
+  \ 't' : [':silent :CocCommand explorer --toggle', 'toggle-file-tree'],
   \ }
 
 autocmd! FileType which_key

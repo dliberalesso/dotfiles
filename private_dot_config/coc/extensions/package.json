@@ -3,6 +3,7 @@
     "coc-css": "^1.2.5",
     "coc-elixir": ">=0.6.0",
     "coc-emoji": ">=1.2.3",
+    "coc-explorer": ">=0.8.5",
     "coc-floaterm": ">=0.0.7",
     "coc-fzf-preview": ">=0.4.23",
     "coc-git": ">=2.0.2",
