@@ -1,7 +1,5 @@
 " Space is our leader!
 let g:mapleader="\<Space>"
-nnoremap <silent> <Leader>ff :<C-u>CocCommand fzf-preview.ProjectFiles<CR>
-nnoremap <silent> <Leader>fd :<C-u>CocCommand fzf-preview.DirectoryFiles<CR>
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by

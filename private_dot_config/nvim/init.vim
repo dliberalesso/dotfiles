@@ -6,3 +6,4 @@ runtime! plugins.vim
 runtime! general.vim
 runtime! theme.vim
 runtime! mappings.vim
+runtime! which_key.vim
