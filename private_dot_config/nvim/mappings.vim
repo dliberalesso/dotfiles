@@ -1,4 +1,5 @@
 " Space is our leader!
+nnoremap <Space> <Nop>
 let g:mapleader="\<Space>"
 
 " Use tab for trigger completion with characters ahead and navigate.

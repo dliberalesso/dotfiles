@@ -1,10 +1,7 @@
-nnoremap <silent> <leader> :<c-u>WhichKey 'SPC'<CR>
-vnoremap <silent> <leader> :<c-u>WhichKeyVisual 'SPC'<CR>
+nnoremap <silent> <leader> :<c-u>LeaderMapper 'SPC'<CR>
+vnoremap <silent> <leader> :<c-u>LeaderMapper 'SPC'<CR>
 
-let g:which_key_map = {}
-let g:which_key_sep = '->'
-
-let g:which_key_map.b = {
+let g:buffer_menu = {
   \ 'name' : '+buffer',
   \ '1' : ['<Plug>AirlineSelectTab1', 'buffer-1'],
   \ '2' : ['<Plug>AirlineSelectTab2', 'buffer-2'],
@@ -27,7 +24,7 @@ nnoremap <c-e> :e<Space>
 nnoremap <c-h> :split<Space>
 nnoremap <c-v> :vsplit<Space>
 
-let g:which_key_map.f = {
+let g:file_menu = {
   \ 'name' : '+find/file',
   \ 'd' : [':CocCommand fzf-preview.DirectoryFiles', 'fzf-directory-files'],
   \ 'e' : ['<c-e>', 'edit-file'],
@@ -39,7 +36,7 @@ let g:which_key_map.f = {
   \ 'v' : ['<c-v>', 'vsplit-edit-file'],
   \ }
 
-let g:which_key_map['q'] = {
+let g:quit_menu = {
   \ 'name' : '+quit/write',
   \ 'q' : [':q', 'quit'],
   \ 'Q' : [':qa!', 'quit-without-saving'],
@@ -47,4 +44,9 @@ let g:which_key_map['q'] = {
   \ 'W' : [':wqa', 'write-all-and-quit'],
   \ }
 
-autocmd! VimEnter * call which_key#register('SPC', 'g:which_key_map')
+let g:leaderMenu = {
+  \ 'name' : 'SPC',
+  \ 'b' : [buffer_menu, '+buffer'],
+  \ 'f' : [file_menu, '+find/file'],
+  \ 'q' : [quit_menu, '+quit/write'],
+  \ }

@@ -10,7 +10,7 @@ function! PackagerInit() abort
   call packager#add('tpope/vim-sensible')
   call packager#add('tpope/vim-surround')
 
-  call packager#add('liuchengxu/vim-which-key')
+  call packager#add('dpretet/vim-leader-mapper')
   call packager#add('junegunn/fzf', { 'do': { -> fzf#install() } })
   call packager#add('neoclide/coc.nvim', { 'branch': 'release' })
 
