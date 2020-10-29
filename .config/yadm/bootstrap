@@ -9,8 +9,19 @@ cat << EOF > "$HOME/.config/yadm/repo.git/info/sparse-checkout"
 !README.md
 EOF
 
+mkdir -p "$HOME/.local/share/nvim/undodir"
+
+git clone https://github.com/zdharma/zinit.git "$HOME/.config/zsh/.zinit/bin"
+zsh -i -c exit
+
+cd "$HOME/.config/coc/extensions"
+yarn install --frozen-lockfile
+cd "$HOME"
+
+git clone https://github.com/kristijanhusak/vim-packager "$HOME/.config/nvim/pack/packager/opt/vim-packager"
+nvim +PackagerInstall PackagerUpdate +CocInstall +CocUpdateSync +CocRebuild +qall
+
 yadm checkout --quiet
 
-mkdir -p ~/.local/share/nvim/undodir
-git clone https://github.com/kristijanhusak/vim-packager ~/.config/nvim/pack/packager/opt/vim-packager
-git clone https://github.com/zdharma/zinit.git ~/.config/zsh/.zinit/bin
+rm .zcompdump yadm
+exit
