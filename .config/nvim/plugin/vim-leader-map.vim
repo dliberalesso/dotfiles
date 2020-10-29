@@ -29,6 +29,7 @@ let g:file_menu = {
   \ 'd' : [':CocCommand fzf-preview.DirectoryFiles', 'fzf-directory-files'],
   \ 'e' : ['<c-e>', 'edit-file'],
   \ 'f' : [':CocCommand fzf-preview.ProjectFiles', 'fzf-project-files'],
+  \ 'g' : [':CocCommand fzf-preview.GitFiles', 'fzf-git-files'],
   \ 'h' : ['<c-h>', 'split-edit-file'],
   \ 'm' : [':FloatermNew lf', 'lf-file-manager'],
   \ 's' : [':update', 'save-file'],
