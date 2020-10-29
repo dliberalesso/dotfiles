@@ -1,5 +1,8 @@
 #!/bin/zsh
 
+git clone https://github.com/zdharma/zinit.git "$HOME/.config/zsh/.zinit/bin"
+exec zsh
+
 # sparse checkout
 yadm gitconfig core.sparseCheckout true
 
@@ -11,9 +14,6 @@ EOF
 
 mkdir -p "$HOME/.local/share/nvim/undodir"
 
-git clone https://github.com/zdharma/zinit.git "$HOME/.config/zsh/.zinit/bin"
-zsh -i -c exit
-
 cd "$HOME/.config/coc/extensions"
 yarn install --frozen-lockfile
 cd "$HOME"
@@ -24,4 +24,3 @@ nvim +PackagerInstall PackagerUpdate +CocInstall +CocUpdateSync +CocRebuild +qal
 yadm checkout --quiet
 
 rm .zcompdump yadm
-exit
