@@ -125,6 +125,7 @@ alias lh="exa -lh --color=auto"
 alias lah="exa -lah --color=auto"
 alias ls="exa --color=auto"
 alias grep="grep --color=auto"
+alias dotfiles="cd ~/ && GIT_DIR=/home/dli5/.config/yadm/repo.git nvim"
 
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"

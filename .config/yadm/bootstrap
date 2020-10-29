@@ -10,3 +10,5 @@ cat << EOF > "$HOME/.config/yadm/repo.git/info/sparse-checkout"
 EOF
 
 mkdir -p "$HOME/.local/share/nvim/undodir"
+
+zsh -i -c "./.config/yadm/continue_bootstrap"

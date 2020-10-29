@@ -11,6 +11,8 @@ set shortmess+=c
 set splitright
 set splitbelow
 
+let loaded_netrw = 0
+
 set signcolumn=yes
 set number relativenumber
 augroup numbertoggle

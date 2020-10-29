@@ -1,15 +1,19 @@
 #!/bin/zsh
 
-# sparse checkout
+echo "Doing sparse checkout"
 yadm gitconfig core.sparseCheckout true
 yadm checkout --quiet
 
-nvim +PackagerInstall
+echo "Installing/Updating nvim packages"
+nvim --headless +PackagerClean +UpdatePackages
 
+echo "Installing coc extensions"
 cd "$HOME/.config/coc/extensions"
 npm install --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
 cd "$HOME"
 
-nvim +CocUpdate
+echo "Update coc"
+nvim --headless +CocInstall +CocUpdateSync +CocRebuild +qall
 
+echo "Deleting leftovers"
 rm .zcompdump yadm
