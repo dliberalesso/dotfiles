@@ -2,7 +2,7 @@
 
 git clone https://github.com/zdharma/zinit.git "$HOME/.config/zsh/.zinit/bin"
 source "$HOME/.zshenv"
-source "$HOME/.config/zsh"/.zprofile"
+source "$HOME/.config/zsh/.zprofile"
 source "$HOME/.config/zsh/.zshrc"
 
 # sparse checkout
