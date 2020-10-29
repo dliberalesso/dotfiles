@@ -1,5 +1,8 @@
 #!/bin/zsh
 
+echo "Updating zinit"
+zinit update --all
+
 echo "Installing/Updating nvim packages"
 nvim --headless +PackagerClean +UpdatePackages
 
