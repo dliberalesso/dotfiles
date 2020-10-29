@@ -1,0 +1,14 @@
+#!/bin/zsh
+
+# sparse checkout
+yadm gitconfig core.sparseCheckout true
+
+cd "$HOME/.config/coc/extensions"
+yarn install --frozen-lockfile
+cd "$HOME"
+
+nvim +PackagerInstall +PackagerUpdate +CocInstall +CocUpdateSync +CocRebuild +qall
+
+yadm checkout --quiet
+
+rm .zcompdump .yarnrc .nvimlog yadm
