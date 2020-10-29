@@ -1,15 +1,12 @@
 #!/bin/zsh
 
-echo "Updating zinit"
-zinit update --all
-
 echo "Installing/Updating nvim packages"
 nvim --headless +PackagerClean +UpdatePackages
 
-echo "Installing coc extensions"
+echo "Installing/Updating coc extensions"
 cd "$HOME/.config/coc/extensions"
-npm install --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
+npm update --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
 cd "$HOME"
 
-echo "Updating coc"
+echo "Installing/Updating coc"
 nvim --headless +CocInstall +CocUpdateSync +CocRebuild +qall
