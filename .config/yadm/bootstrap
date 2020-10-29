@@ -25,4 +25,4 @@ nvim +PackagerInstall +PackagerUpdate +CocInstall +CocUpdateSync +CocRebuild +qa
 
 yadm checkout --quiet
 
-rm .zcompdump yadm
+rm .zcompdump .yarnrc .nvimlog yadm
