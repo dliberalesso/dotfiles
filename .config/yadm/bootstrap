@@ -1,7 +1,9 @@
 #!/bin/zsh
 
 git clone https://github.com/zdharma/zinit.git "$HOME/.config/zsh/.zinit/bin"
-exec zsh
+source "$HOME/.zshenv"
+source "$HOME/.config/zsh"/.zprofile"
+source "$HOME/.config/zsh/.zshrc"
 
 # sparse checkout
 yadm gitconfig core.sparseCheckout true
@@ -19,7 +21,7 @@ yarn install --frozen-lockfile
 cd "$HOME"
 
 git clone https://github.com/kristijanhusak/vim-packager "$HOME/.config/nvim/pack/packager/opt/vim-packager"
-nvim +PackagerInstall PackagerUpdate +CocInstall +CocUpdateSync +CocRebuild +qall
+nvim +PackagerInstall +PackagerUpdate +CocInstall +CocUpdateSync +CocRebuild +qall
 
 yadm checkout --quiet
 
