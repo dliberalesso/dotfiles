@@ -12,3 +12,5 @@ EOF
 yadm checkout --quiet
 
 mkdir -p ~/.local/share/nvim/undodir
+git clone https://github.com/kristijanhusak/vim-packager ~/.config/nvim/pack/packager/opt/vim-packager
+git clone https://github.com/zdharma/zinit.git ~/.config/zsh/.zinit/bin
