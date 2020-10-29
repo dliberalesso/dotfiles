@@ -4,13 +4,12 @@
 yadm gitconfig core.sparseCheckout true
 yadm checkout --quiet
 
-nvim +PackagerInstall +PackagerUpdate +CocInstall +CocUpdateSync +CocRebuild +qall
+nvim --headless +PackagerInstall +qall
 
 cd "$HOME/.config/coc/extensions"
-yarn install --frozen-lockfile
+npm install coc-snippets coc-python coc-tsserver coc-html coc-css coc-json coc-yaml --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
 cd "$HOME"
 
-
-nvim +CocInstall +CocUpdateSync +CocRebuild +qall
+nvim --headless +CocInstall +CocUpdateSync +CocRebuild +qall
 
 rm .zcompdump .yarnrc .nvimlog yadm
