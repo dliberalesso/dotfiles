@@ -10,4 +10,7 @@ cd "$HOME/.config/coc/extensions"
 yarn install --frozen-lockfile
 cd "$HOME"
 
+
+nvim +CocInstall +CocUpdateSync +CocRebuild +qall
+
 rm .zcompdump .yarnrc .nvimlog yadm
