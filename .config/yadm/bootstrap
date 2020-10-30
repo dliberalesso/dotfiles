@@ -20,5 +20,10 @@ EOF
 echo "Creating nvim's undodir"
 mkdir -p "$HOME/.local/share/nvim/undodir"
 
+echo "Creating post-pull hook"
+mkdir -p "$HOME/.config/yadm/hooks"
+ln -s "$HOME/.local/bin/update_dotfiles" "$HOME/.config/yadm/hooks/post_pull"
+chmod +x "$HOME/.config/yadm/hooks/post_pull"
+
 echo "Deleting leftovers"
 rm .zcompdump yadm
