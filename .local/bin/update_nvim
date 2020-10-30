@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+# vim:syntax=zsh
+# vim:filetype=zsh
+
+echo "Installing/Updating nvim packages"
+nvim --headless +PackagerClean +UpdatePackages
+
+echo "Installing/Updating coc extensions"
+cd "$HOME/.config/coc/extensions"
+npm prune
+npm update --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
+cd "$HOME"
+
+echo "Installing/Updating coc"
+nvim --headless +CocInstall +CocUpdateSync +CocRebuild +qall

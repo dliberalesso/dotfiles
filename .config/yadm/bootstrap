@@ -1,11 +1,10 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
+# vim:syntax=zsh
+# vim:filetype=zsh
 
 echo "Cloning zinit and vim-packager"
 git clone https://github.com/zdharma/zinit.git "$HOME/.config/zsh/.zinit/bin"
 git clone https://github.com/kristijanhusak/vim-packager "$HOME/.config/nvim/pack/packager/opt/vim-packager"
-
-echo "Installing zsh plugins"
-zsh -i -c '-zplg-scheduler burst && zinit self-update && zinit compile --all || true'
 
 echo "Doing sparse checkout"
 ./yadm gitconfig core.sparseCheckout true
@@ -23,5 +22,3 @@ mkdir -p "$HOME/.local/share/nvim/undodir"
 
 echo "Deleting leftovers"
 rm .zcompdump yadm
-
-zsh -i -c 'yadm pull'
