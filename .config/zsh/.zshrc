@@ -49,61 +49,16 @@ zinit wait"0a" lucid light-mode for \
         zsh-users/zsh-autosuggestions \
     blockf atpull"zinit creinstall -q ." \
         zsh-users/zsh-completions \
-    atload"bindkey '^[[A' history-substring-search-up; bindkey '^[[B' history-substring-search-down" \
-        zsh-users/zsh-history-substring-search \
     chrissicool/zsh-256color \
     pick"scripts/base16-${BASE16_THEME}.sh" \
         chriskempson/base16-shell \
     pick"bash/base16-${BASE16_THEME}.config" \
-        nicodebo/base16-fzf \
-    pick"asdf.sh" src"completions/_asdf" \
-        @asdf-vm/asdf \
-    make"install PREFIX=$ZPFX" mv"completion/yadm.zsh_completion -> _yadm" \
-        TheLocehiliosan/yadm
-
-zstyle ':completion:*' completer _expand _complete _ignored _approximate
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-zstyle ':completion:*' menu select=2
-zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
-zstyle ':completion:*:descriptions' format '-- %d --'
-zstyle ':completion:*:processes' command 'ps -au$USER'
-zstyle ':completion:complete:*:options' sort false
-zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm,cmd -w -w"
-
-zinit wait"0b" lucid from"gh-r" bpick"*amd64.deb" atclone"cp -TR usr/ $ZPFX/" atpull"%atclone" for \
-    atload"alias cat=bat; export BAT_THEME=base16-256" @sharkdp/bat \
-    cli/cli \
-    BurntSushi/ripgrep
+        nicodebo/base16-fzf
 
 zinit wait"0b" lucid from"gh-r" for \
-    bpick"*linux64*" mv"nvim* -> nvim" atclone"cp -TR nvim/ $ZPFX/" atpull"%atclone" neovim/neovim \
-    sbin"delta*/delta" dandavison/delta \
-    sbin"exa* -> exa" ogham/exa \
-    sbin"tldr* -> tldr" dbrgn/tealdeer \
-    sbin"win32yank.exe" equalsraf/win32yank \
-    sbin junegunn/fzf-bin \
-    sbin xxxserxxx/gotop \
-    sbin jesseduffield/lazygit \
-    sbin gokcehan/lf
-
-zinit wait"0c" lucid for \
-    OMZ::lib/termsupport.zsh \
-    OMZ::plugins/git/git.plugin.zsh \
-    OMZ::plugins/tmux/tmux.plugin.zsh \
-    has"delta" mv"completion.zsh -> _delta" as"completion" \
-        https://github.com/dandavison/delta/blob/master/etc/completion/completion.zsh \
-    has"exa" mv"completions.zsh -> _exa" as"completion" \
-        https://github.com/ogham/exa/blob/master/completions/completions.zsh \
-    has"lf" \
-        mv"lf.zsh -> _lf" as"completion" \
-            https://github.com/gokcehan/lf/blob/master/etc/lf.zsh \
-        https://github.com/gokcehan/lf/blob/master/etc/lfcd.sh \
-    has"tldr" mv"zsh_tealdeer -> _tldr" as"completion" \
-        https://github.com/dbrgn/tealdeer/blob/master/zsh_tealdeer
+    sbin"win32yank.exe" equalsraf/win32yank
 
 zinit wait"0c" lucid light-mode has"fzf" for \
-    sbin"bin/fzf-tmux" mv"shell/completion.zsh -> _fzf" \
-    src"shell/key-bindings.zsh" atclone"cp -TR man/ $ZPFX/share/man/" atpull"%atclone" junegunn/fzf \
     sbin"bin/gomi" pick"/dev/null" b4b4r07/zsh-gomi \
     wfxr/forgit \
     wfxr/formarks
@@ -115,7 +70,8 @@ zinit wait"0d" lucid has"bat" has"rg" from"gh-r" \
 
 export EDITOR="nvim"
 export VISUAL=$EDITOR
-export PAGER="less"
+export PAGER="bat"
+export BAT_THEME=base16-256
 
 autoload colors && colors
 
