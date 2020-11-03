@@ -17,7 +17,7 @@ yadm clone --bootstrap https://github.com/dliberalesso/dotfiles
 
 asdf erlang elixir nodejs python ruby rust
 
-paru -S bandwhich bat bottom-bin dust-bin exa fd fzf github-cli git-delta-bin grex hyperfine lf-bin \
+paru -S asp bandwhich bat bottom-bin dust-bin exa fd fzf github-cli git-delta-bin grex hyperfine lf-bin \
   procs-bin ripgrep sd starship-bin neovim-nightly tealdeer tmux tokei yadm zoxide-bin
 
 pip install --upgrade pynvim
