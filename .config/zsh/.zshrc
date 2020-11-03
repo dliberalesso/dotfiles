@@ -56,6 +56,8 @@ zinit wait"0a" lucid light-mode for \
         chriskempson/base16-shell \
     pick"bash/base16-${BASE16_THEME}.config" \
         nicodebo/base16-fzf \
+    pick"asdf.sh" src"completions/_asdf" \
+        @asdf-vm/asdf \
     mv"shell/completion.zsh -> _fzf" pick"shell/key-bindings.zsh" \
         junegunn/fzf \
     sbin"bin/gomi" pick"/dev/null" \
