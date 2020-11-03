@@ -2,8 +2,7 @@
 My (ArchWSL2)[https://github.com/yuk7/ArchWSL] dotfiles
 
 ```sh
-pacman -Syu bandwhich base-devel bat elixir exa fd fzf git github-cli \
-  hyperfine man nodejs npm python python-pip reflector ripgrep ruby sd tmux tokei unzip wget zsh
+pacman -Syu base-devel git man reflector unzip wget zsh
 
 rm -rf .bash*
 
@@ -14,13 +13,15 @@ cd ..
 rm -rf paru/
 paru --gendb
 
-paru -S bottom-bin dust-bin git-delta-bin grex lf-bin procs-bin starship-bin \
-  neovim-nightly tealdeer yadm zoxide-bin
+yadm clone --bootstrap https://github.com/dliberalesso/dotfiles
+
+asdf erlang elixir nodejs python ruby rust
+
+paru -S bandwhich bat bottom-bin dust-bin exa fd fzf github-cli git-delta-bin grex hyperfine lf-bin \
+  procs-bin ripgrep sd starship-bin neovim-nightly tealdeer tmux tokei yadm zoxide-bin
 
 pip install --upgrade pynvim
-npm install -g npm neovim yarn
-
-yadm clone --bootstrap https://github.com/dliberalesso/dotfiles
+npm install -g neovim yarn
 ```
 
 # TODO:
