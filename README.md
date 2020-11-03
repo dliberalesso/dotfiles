@@ -2,7 +2,7 @@
 My (ArchWSL2)[https://github.com/yuk7/ArchWSL] dotfiles
 
 ```sh
-pacman -Syu base-devel git man reflector unzip wget zsh
+pacman -Syu base-devel git man reflector rustup unzip wget zsh
 
 rm -rf .bash*
 
