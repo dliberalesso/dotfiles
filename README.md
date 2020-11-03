@@ -2,7 +2,7 @@
 My (ArchWSL2)[https://github.com/yuk7/ArchWSL] dotfiles
 
 ```sh
-pacman -Syu base-devel git man reflector rustup unzip wget zsh
+pacman -Syu base-devel git man reflector unzip wget zsh
 
 rm -rf .bash*
 
@@ -18,7 +18,7 @@ paru -S asp bandwhich bat bottom-bin dust-bin exa fd fzf github-cli git-delta-bi
 
 yadm clone --bootstrap https://github.com/dliberalesso/dotfiles
 
-asdf erlang elixir nodejs python ruby rust
+asdf erlang elixir nodejs python ruby
 
 pip install --upgrade pynvim
 npm install -g neovim yarn
