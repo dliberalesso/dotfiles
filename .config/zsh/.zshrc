@@ -31,6 +31,7 @@ setopt automenu
 source "$ZDOTDIR/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
+unalias zi
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
@@ -54,20 +55,25 @@ zinit wait"0a" lucid light-mode for \
     pick"scripts/base16-${BASE16_THEME}.sh" \
         chriskempson/base16-shell \
     pick"bash/base16-${BASE16_THEME}.config" \
-        nicodebo/base16-fzf
-
-zinit wait"0b" lucid from"gh-r" for \
-    sbin"win32yank.exe" equalsraf/win32yank
-
-zinit wait"0c" lucid light-mode has"fzf" for \
-    sbin"bin/gomi" pick"/dev/null" b4b4r07/zsh-gomi \
+        nicodebo/base16-fzf \
+    mv"shell/completion.zsh -> _fzf" pick"shell/key-bindings.zsh" \
+        junegunn/fzf \
+    sbin"bin/gomi" pick"/dev/null" \
+        b4b4r07/zsh-gomi \
     wfxr/forgit \
     wfxr/formarks
 
-zinit wait"0d" lucid has"bat" has"rg" from"gh-r" \
+[ -d "$ZPFX/share/doc" ] || mkdir -p "$ZPFX/share/doc"
+[ -d "$ZPFX/share/man/man1" ] || mkdir -p "$ZPFX/share/man/man1"
+
+zinit wait"0b" lucid from"gh-r" for \
     atclone"cp -TR bin $ZPFX/bin; cp -TR doc $ZPFX/share/doc; cp -TR man $ZPFX/share/man/man1" \
-    atpull"%atclone" atload"alias man=batman" for \
-        eth-p/bat-extras
+    atpull"%atclone" atload"alias man=batman" \
+        eth-p/bat-extras \
+    sbin"win32yank.exe" \
+        equalsraf/win32yank
+
+eval "$(zoxide init zsh)"
 
 export EDITOR="nvim"
 export VISUAL=$EDITOR
