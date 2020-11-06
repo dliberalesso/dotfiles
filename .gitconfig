@@ -1,6 +1,7 @@
 [user]
 	name = Douglas Liberalesso
 	email = dliberalesso@gmail.com
+
 [core]
 	pager = delta --theme='base16'
 
@@ -15,3 +16,6 @@
 	commit-decoration-style = bold yellow box ul
 	file-style = bold yellow ul
 	file-decoration-style = none
+
+[pull]
+	ff = only
