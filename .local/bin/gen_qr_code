@@ -2,10 +2,11 @@
 # vim:syntax=zsh
 # vim:filetype=zsh
 
-i=1
+file="$HOME/qrcode.png"
 
-for string in "$@"
+while read string && [ $string != "quit" ]
 do
-  qrencode -o "$HOME/windows/Desktop/$i.png" string -s 7
-  i=$((i + 1))
+  qrencode -o $file -s 7 $string
+  nircmd.exe clipboard copyimage `wslpath -aw $file`
+  rm $file
 done
