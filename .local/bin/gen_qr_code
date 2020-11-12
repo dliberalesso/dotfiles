@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+# vim:syntax=zsh
+# vim:filetype=zsh
+
+i=1
+
+for string in "$@"
+do
+  qrencode -o "$HOME/windows/Desktop/$i.png" string -s 7
+  i=$((i + 1))
+done
