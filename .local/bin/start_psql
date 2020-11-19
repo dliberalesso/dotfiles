@@ -1,9 +1,0 @@
-#!/usr/bin/env zsh
-# vim:syntax=zsh
-# vim:filetype=zsh
-
-if [ ! -d /run/postgresql ]; then
-  sudo mkdir -p /run/postgresql
-  sudo chown -R postgres:postgres /run/postgresql
-  sudo -u postgres pg_ctl -D /var/lib/postgres/data start
-fi
