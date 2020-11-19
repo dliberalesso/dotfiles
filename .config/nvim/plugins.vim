@@ -12,7 +12,6 @@ function! PackagerInit() abort
 
   call packager#add('dpretet/vim-leader-mapper')
   call packager#add('junegunn/fzf', { 'do': { -> fzf#install() } })
-  call packager#add('nvim-treesitter/nvim-treesitter')
   call packager#add('neoclide/coc.nvim', { 'branch': 'release' })
 
   call packager#add('voldikss/vim-floaterm')
