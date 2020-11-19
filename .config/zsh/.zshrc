@@ -41,16 +41,6 @@ zinit lucid light-mode for \
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
-# set JAVA_HOME
-asdf_update_java_home() {
-  local java_path
-  java_path="$(asdf which java)"
-  if [[ -n "${java_path}" ]]; then
-    export JAVA_HOME
-    JAVA_HOME="$(dirname "$(dirname "$(realpath "${java_path}")")")"
-  fi
-}
-
 BASE16_THEME="dracula"
 zinit wait"0a" lucid light-mode for \
     atinit"zicompinit; zicdreplay" \
@@ -64,8 +54,6 @@ zinit wait"0a" lucid light-mode for \
         chriskempson/base16-shell \
     pick"bash/base16-${BASE16_THEME}.config" \
         nicodebo/base16-fzf \
-    pick"asdf.sh" src"completions/_asdf" atload'asdf_update_java_home' \
-        @asdf-vm/asdf \
     mv"shell/completion.zsh -> _fzf" pick"shell/key-bindings.zsh" \
         junegunn/fzf \
     sbin"bin/gomi" pick"/dev/null" \
@@ -88,9 +76,7 @@ zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm,cmd
 zinit wait"0b" lucid from"gh-r" for \
     atclone"cp -TR bin $ZPFX/bin; cp -TR doc $ZPFX/share/doc; cp -TR man $ZPFX/share/man/man1" \
     atpull"%atclone" atload"alias man=batman" \
-        eth-p/bat-extras \
-    sbin"win32yank.exe" \
-        equalsraf/win32yank
+        eth-p/bat-extras
 
 # load keybindings
 source "${ZDOTDIR}/keybindings.zsh"
