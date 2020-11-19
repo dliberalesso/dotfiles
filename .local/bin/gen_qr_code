@@ -2,11 +2,4 @@
 # vim:syntax=zsh
 # vim:filetype=zsh
 
-file="$HOME/qrcode.png"
-
-while read string && [ $string != "quit" ]
-do
-  qrencode -o $file -s 7 $string
-  nircmd.exe clipboard copyimage `wslpath -aw $file`
-  rm $file
-done
+qrencode -o - -s 7 "$@" | xclip -selection clipboard -t image/png
