@@ -149,3 +149,7 @@ XF86AudioMute
 # Generate QR Code from clipboard
 super + n
 	gen_qr_code $(xclip -o)
+
+# Open file explorer (old habits die hard)
+super + e
+	Thunar
