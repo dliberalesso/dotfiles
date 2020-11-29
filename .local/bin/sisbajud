@@ -1,0 +1,162 @@
+#!/bin/env python3
+
+import time
+import pyautogui
+import pyperclip
+
+from pynput.keyboard import GlobalHotKeys, Listener
+
+pyautogui.FAILSAFE = False
+
+juiz = pyautogui.prompt('Juizo (F)ederal ou (S)ubstituto?')
+if juiz == 'F' or juiz == 'f':
+    juiz = 'furtado'
+elif juiz == 'S' or juiz == 's':
+    juiz = 'tomm'
+else:
+    exit()
+
+dados = []
+continua = True
+counter = 0
+
+def reinicia():
+    confirmacao = pyautogui.confirm('Novo SISBAJUD?')
+    if confirmacao == 'OK':
+        global dados, continua, counter
+        dados = []
+        continua = True
+        counter = 0
+    else:
+        listener.stop()
+        exit()
+
+def prossegue(numero_processo):
+    time.sleep(0.25)
+    pyautogui.click(x=1342, y=280, button='left')
+    time.sleep(2)
+    pyautogui.click(x=1322, y=236, button='left')
+    time.sleep(0.25)
+    pyautogui.click(x=1127, y=204, button='left')
+    time.sleep(1)
+    pyperclip.copy(numero_processo)
+    pyautogui.hotkey('ctrl', 'v')
+    time.sleep(0.25)
+    pyautogui.click(x=1190, y=212, button='left')
+    time.sleep(0.25)
+    pyautogui.click(x=1859, y=273, button='left')
+    pyautogui.hotkey('ctrl', '3')
+    pyperclip.copy('Bloqueio - minuta incluída nesta data')
+    reinicia()
+
+def preenche_sisbajud():
+    # insere juiz
+    time.sleep(0.25)
+    pyautogui.click(x=1434, y=566, button='left')
+    time.sleep(0.25)
+    pyperclip.copy(juiz)
+    pyautogui.hotkey('ctrl', 'v')
+    time.sleep(0.25)
+    pyautogui.click(x=1434, y=605, button='left')
+
+    # insere juizo
+    time.sleep(0.25)
+    pyautogui.click(x=1987, y=566, button='left')
+    time.sleep(0.25)
+    pyperclip.copy('santo')
+    pyautogui.hotkey('ctrl', 'v')
+    time.sleep(0.25)
+    pyautogui.click(x=1987, y=605, button='left')
+
+    # insere numero processo
+    numero_processo = dados.pop(0)
+    time.sleep(0.25)
+    pyautogui.click(x=1436, y=659, button='left')
+    time.sleep(0.25)
+    pyperclip.copy(numero_processo)
+    pyautogui.hotkey('ctrl', 'v')
+
+    # insere tipo processo
+    time.sleep(0.25)
+    pyautogui.click(x=1735, y=659, button='left')
+    time.sleep(0.25)
+    pyautogui.click(x=1735, y=659, button='left')
+
+    # insere cpf/cnpj autor
+    time.sleep(0.25)
+    pyautogui.click(x=1968, y=659, button='left')
+    time.sleep(0.25)
+    pyperclip.copy(dados.pop(0))
+    pyautogui.hotkey('ctrl', 'v')
+
+    # insere nome do autor
+    time.sleep(0.25)
+    pyautogui.click(x=2367, y=659, button='left')
+    time.sleep(0.25)
+    pyperclip.copy(dados.pop(0))
+    pyautogui.hotkey('ctrl', 'v')
+
+    # extrai o valor
+    valor = dados.pop(-1)
+
+    # insere cpf/cnpj reu
+    for cpf_cnpj in dados:
+        time.sleep(2)
+        pyautogui.click(x=1513, y=829, button='left')
+        time.sleep(0.25)
+        pyperclip.copy(cpf_cnpj)
+        pyautogui.hotkey('ctrl', 'v')
+        time.sleep(0.25)
+        pyautogui.click(x=1749, y=829, button='left')
+
+    # insere valor
+    time.sleep(2)
+    pyautogui.click(x=2077, y=829, button='left')
+    time.sleep(0.25)
+    pyperclip.copy(valor)
+    pyautogui.hotkey('ctrl', 'v')
+    time.sleep(0.25)
+    pyautogui.click(x=2395, y=829, button='left')
+
+    # confirma se pode protocolar
+    confirmacao = pyautogui.confirm('Protocolar a ordem?')
+    if confirmacao == 'OK':
+        prossegue(numero_processo)
+    else:
+        reinicia()
+
+def alerta_informar_manualmente():
+    pyautogui.alert('Informe o nome manualmente!')
+    return None
+
+def seleciona_autor(cnpj):
+    nomes = {
+        '26994558000123': 'UNIÃO - ADVOCACIA GERAL DA UNIÃO',
+        '00360305000104': 'CAIXA ECONÔMICA FEDERAL - CEF',
+        '04892707000100': 'DEPARTAMENTO NACIONAL DE INFRA-ESTRUTURA DE TRANSPORTES - DNIT',
+        '00394460021653': 'UNIÃO - FAZENDA NACIONAL',
+        '29979036000140': 'INSTITUTO NACIONAL DO SEGURO SOCIAL - INSS',
+        '03636198000192': 'MINISTÉRIO PÚBLICO FEDERAL'
+    }
+
+    nome = nomes.get(cnpj)
+    dados.append(nome) if nome else alerta_informar_manualmente()
+
+def on_ctrl_c():
+    global continua, counter
+    if continua:
+        dado = pyperclip.paste()
+        dados.append(dado)
+        if counter == 1: seleciona_autor(dado)
+        counter += 1
+
+def on_ctrl_1():
+    global continua
+    if continua:
+        continua = False
+        preenche_sisbajud()
+
+with GlobalHotKeys({
+        '<ctrl>+c': on_ctrl_c,
+        '<ctrl>+1': on_ctrl_1}) as listener:
+    listener.join()
