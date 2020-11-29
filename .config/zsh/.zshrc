@@ -56,8 +56,6 @@ zinit wait"0a" lucid light-mode for \
         nicodebo/base16-fzf \
     mv"shell/completion.zsh -> _fzf" pick"shell/key-bindings.zsh" \
         junegunn/fzf \
-    sbin"bin/gomi" pick"/dev/null" \
-        b4b4r07/zsh-gomi \
     wfxr/forgit \
     wfxr/formarks
 
