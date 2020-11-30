@@ -81,7 +81,7 @@ source "${ZDOTDIR}/keybindings.zsh"
 
 export EDITOR="nvim"
 export VISUAL=$EDITOR
-export PAGER="bat"
+export PAGER="less"
 export BAT_THEME=base16-256
 
 autoload colors && colors
