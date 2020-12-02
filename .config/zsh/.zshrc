@@ -38,8 +38,7 @@ zinit lucid light-mode for \
     zinit-zsh/z-a-readurl \
     zinit-zsh/z-a-bin-gem-node
 
-eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
+source "$ZDOTDIR/startship.zsh"
 
 BASE16_THEME="dracula"
 zinit wait"0a" lucid light-mode for \
@@ -56,6 +55,9 @@ zinit wait"0a" lucid light-mode for \
         nicodebo/base16-fzf \
     mv"shell/completion.zsh -> _fzf" pick"shell/key-bindings.zsh" \
         junegunn/fzf \
+    atclone"zoxide init zsh > zoxide_hook; direnv hook zsh > direnv_hook" \
+    atpull"%atclone" multisrc"zoxide_hook direnv_hook" \
+        zdharma/null \
     wfxr/forgit \
     wfxr/formarks
 
