@@ -19,3 +19,5 @@
 
 [pull]
 	ff = only
+[credential]
+	helper = cache
