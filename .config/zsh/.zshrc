@@ -2,12 +2,13 @@
 # vim:filetype=zsh
 
 # Load Zinit module (build it with 'zinit module build')
-module_path+=( "/home/dli5/.config/zsh/.zinit/bin/zmodules/Src" )
-zmodload zdharma/zplugin
+# Do it everytime something is updated
+# module_path+=( "/home/dli5/.config/zsh/.zinit/bin/zmodules/Src" )
+# zmodload zdharma/zplugin
 
 # Load our prompt
-# TODO: update this file with 'starship init zsh' after updates
-source "$HOME/.cache/zsh/starship-init"
+# TODO: update this file with 'starship init zsh --print-full-init' after updates
+source "$ZDOTDIR/starship-init"
 
 # History file configuration
 [ -z "$HISTFILE" ] && HISTFILE="$ZDOTDIR/.zsh_history"
@@ -79,9 +80,9 @@ zinit wait"0b" lucid from"gh-r" for \
 
 # load direnv and zoxide
 # TODO: update this file with 'direnv hook zsh' after updates
-source "$HOME/.cache/zsh/direnv-hook"
+source "$ZDOTDIR/direnv-hook"
 # TODO: update this file with 'zoxide init zsh' after updates
-source "$HOME/.cache/zsh/zoxide-init"
+source "$ZDOTDIR/zoxide-init"
 
 # load keybindings
 source "$ZDOTDIR/keybindings.zsh"
