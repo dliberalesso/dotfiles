@@ -3,7 +3,7 @@
 
 # Load Zinit module (build it with 'zinit module build')
 # Do it everytime something is updated
-# module_path+=( "/home/dli5/.config/zsh/.zinit/bin/zmodules/Src" )
+# module_path+=( "$ZDOTDIR/.zinit/bin/zmodules/Src" )
 # zmodload zdharma/zplugin
 
 # Load our prompt

@@ -1,0 +1,9 @@
+# vim:syntax=zsh
+# vim:filetype=zsh
+
+# Add asdf to shell
+PATH_add /opt/asdf-vm/bin
+source /opt/asdf-vm/lib/asdf.sh
+
+# Enable asdf-direnv
+source "$(asdf direnv hook asdf)"
