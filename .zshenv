@@ -13,3 +13,6 @@ fi
 
 # Home-made scripts
 export PATH=${HOME}/.local/bin:$PATH
+
+# QT5 themes
+export QT_QPA_PLATFORMTHEME="qt5ct"
