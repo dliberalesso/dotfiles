@@ -1,13 +1,20 @@
 #!/bin/sh
 
-if (xrandr | grep "HDMI1 disconnected"); then
+if (xrandr | grep "HDMI-1-1 disconnected"); then
   xlayoutdisplay -p eDP1
+  setxkbmap -model abnt2 -layout br -variant abnt2
 else
   xlayoutdisplay -p HDMI1 -o HDMI1
   xrandr --output eDP1 --off
+  setxkbmap -rules evdev -model evdev -layout us -variant intl
 fi
 
-setxkbmap -rules evdev -model evdev -layout us -variant intl
 hsetroot -solid "#44475a"
+
+# QT5 themes
+export QT_QPA_PLATFORMTHEME="qt5ct"
+
+# ClipMenu Launcher
+export CM_LAUNCHER=rofi
 
 exec bspwm

@@ -153,3 +153,7 @@ super + n
 # Open file explorer (old habits die hard)
 super + e
 	Thunar
+
+# Open ClipMenu
+super + slash
+	clipmenu

@@ -16,9 +16,12 @@ bspc config presel_feedback_color "#6272a4"
 bspc rule -a Tk state=floating
 
 pgrep -x sxhkd > /dev/null || sxhkd &
+wmname LG3D
 picom -b
 feh --no-fehbg --bg-fill "$HOME/pictures/wallpaper.jpg"
 launch_polybar
+dunst &
 prismatik &
 thunar --daemon &
+clipmenud &
 redshift -l -28.29917:-54.26306 &
