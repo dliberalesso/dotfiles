@@ -18,7 +18,7 @@ bspc rule -a Tk state=floating
 pgrep -x sxhkd > /dev/null || sxhkd &
 wmname LG3D
 picom -b
-feh --no-fehbg --bg-fill "$HOME/pictures/wallpaper.jpg"
+feh --no-fehbg --bg-fill "$HOME/pictures/wallpaper.png"
 launch_polybar
 dunst &
 prismatik &
